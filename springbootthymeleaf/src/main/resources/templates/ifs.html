@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <span th:if="${sex}=='男'">
+        性别:男
+    </span>
+    <span th:if="${sex}=='女'">
+        性别:女
+    </span>
+    <hr>
+    <div th:switch="${id}">
+        <span th:case="1">ID=1</span>
+        <span th:case="2">ID=2</span>
+        <span th:case="3">ID=3</span>
+        <span th:case="*">ID=*</span>
+    </div>
+</body>
+</html>

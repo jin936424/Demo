@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <span th:text="${#dates.format(date)}"></span>
+    <hr>
+    <span th:text="${#dates.format(date,'yyyy/MM/dd')}"></span>
+    <hr>
+    <span th:text="${#dates.year(date)}"></span>
+    <span th:text="${#dates.month(date)}"></span>
+    <span th:text="${#dates.day(date)}"></span>
+</body>
+</html>

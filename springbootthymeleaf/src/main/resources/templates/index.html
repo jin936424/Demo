@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <span th:text="${'Holler Thymeleaf'}"></span>
+    <hr />
+    <span id="sp" th:text="${msg}"></span>
+    <hr />
+    <img src="img/sun.gif">
+    <hr />
+    <!--th:value仅对input中的value有效-->
+    <input type="text" th:value="${msg}">
+    <hr />
+    <!--/*
+        thymeleaf内置对象   要加#声明
+        strings numbers dates
+        strings.isEmpty(Key):判断字符串是否为空，boolean
+        strings.contains(msg,String):判断字符串是否包含指定的子串，boolean
+        strings.containsIgnoreCase(msg,String):判断字符串是否包含指定的子串，不区分大小写，boolean
+        strings.startsWith(msg,String):判断当前字符串是否以子串开头，boolean
+        strinds.length(msg):返回字符串的长度
+        strings.indexOf(msg,string):查找子串的位置，并返回给字串的下标，如果没有返回-1
+        strings.substring(msg,int,int):截取字串，用户与jsk String类下subString方法相同
+        strings.toUpperCase(msg)\string.toLowerCase(msg):转换大小写
+        strings.append(msg,String):在字符串末尾添加子串
+        */-->
+
+    <spand th:text="${#strings.isEmpty(msg)}"></spand>
+    <hr />
+    <span th:text="${#strings.contains(msg,'a')}"></span>
+    <hr />
+    <span th:text="${#strings.containsIgnoreCase(msg,'t')}"></span>
+    <hr />
+    <span th:text="${#strings.startsWith(msg,'T')}"></span>
+    <hr />
+    <span th:text="${#strings.length(msg)}"></span>
+    <hr />
+    <span th:text="${#strings.indexOf(msg,'y')}"></span>
+    <hr>
+    <span th:text="${#strings.substring(msg,0,5)}"></span>
+    <hr>
+    <span th:text="${#strings.toUpperCase(msg)}"></span>
+    <hr>
+    <span th:text="${#strings.toLowerCase(msg)}"></span>
+    <hr>
+    <span th:text="${#strings.append(msg,' jwh')}"></span>
+
+</body>
+<script type="text/javascript">
+    var sp = document.getElementById("sp") ;
+    sp.style.color="red" ;
+</script>
+</html>

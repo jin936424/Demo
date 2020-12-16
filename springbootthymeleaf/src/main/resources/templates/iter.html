@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--迭代set与list相同
+    index:当前迭代器的索引，从0开始
+    count:当前迭代对象的计数，从1开始
+    size:被迭代的对象的长度
+    odd/even:布尔值，当前循环是否是奇数/偶数，从0开始
+    first:布尔值，当前循环的是否是第一条，如果返回true，则返回false
+    last:布尔值，当前循环的是否是最后一条，如果返回true，则返回false-->
+<table border="1" width="50%">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Index</th>
+        <th>Count</th>
+        <th>Size</th>
+        <th>Odd</th>
+        <th>Even</th>
+        <th>First</th>
+        <th>Last</th>
+    </tr>
+    <tr th:each="user,suibian : ${list}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${suibian.index}"></td>
+        <td th:text="${suibian.count}"></td>
+        <td th:text="${suibian.size}"></td>
+        <td th:text="${suibian.odd}"></td>
+        <td th:text="${suibian.even}"></td>
+        <td th:text="${suibian.first}"></td>
+        <td th:text="${suibian.last}"></td>
+    </tr>
+</table>
+<hr>
+<table border="1" width="50%">
+    <tr>
+        <th>Value</th>
+    </tr>
+    <tr th:each="map : ${map}">
+        <td th:text="${map}"></td>
+    </tr>
+</table>
+<hr>
+<table border="1" width="50%">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Key</th>
+        <th>Count</th>
+    </tr>
+    <tr th:each="map,suibain : ${map}">
+        <td th:text="${map.value.id}"></td>
+        <td th:text="${map.value.name}"></td>
+        <td th:text="${map.value.age}"></td>
+        <td th:text="${map.key}"></td>
+        <td th:text="${suibain.count}"></td>
+    </tr>
+</table>
+</body>
+</html>

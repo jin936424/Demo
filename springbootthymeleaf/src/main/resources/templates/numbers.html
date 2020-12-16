@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--tymeleaf内置对象
+        numbers:
+        POINT：使用“.”分割数字 1.000.000
+        COMMA:使用“,”分割数字 1,000,000
+        WHITESPACE:使用“ ”分割数字 1 000 000
+        NONE:不使用分隔符
+        DEFAULT:根据Locale对象来定义
+        formatInteger(number,digits,decPoint):第一个参数为单个数字，四舍五入，第二个参数为设置最少的整数位不够用0补位,decPoint参数可以不写，默认是NONE
+        arrayFormatInteger(number,digits,decPoint):同上
+        listFormatInteger(number,digits,decPoint):同上
+        setFormatInteger(number,digits,decPoint):同上
+        formatDecimal(number,intDig,decPoint,decDig,decPoint):number是单个数字，intDig是整数位的最少位数，decDig是小数点后保留位数，decPoint是数字分割符,可以不写
+        sequence(from,to,step):设置开始值与结束值，第三个参数时设置步长，可以不写，默认步长为1，否则为-1
+        setFormatPercent(number,intDig,decDig):number是单个数字，intDig是整数位的最少位数，decDig是小数点后保留位数
+        -->
+
+    <h5>formatInteger</h5><br>
+    <span th:text="${#numbers.formatInteger(10.1,2)}"></span>
+    <hr>
+    <span th:text="${#numbers.formatInteger(10.5,3)}"></span>
+    <hr>
+    <span th:text="${#numbers.formatInteger(10.5,0)}"></span>
+    <hr>
+    <span th:text="${#numbers.formatInteger(1000000000,0,'POINT')}"></span>
+    <hr>
+    <span th:text="${#numbers.formatInteger(1000000000,0,'COMMA')}"></span>
+    <hr>
+    <span th:text="${#numbers.formatInteger(1000000000,0,'WHITESPACE')}"></span>
+    <hr>
+    <h5>arrayFormatInteger</h5><br>
+    <span th:each="num : ${#numbers.arrayFormatInteger(arr,2)}"><span th:text="${num}"></span><br></span>
+    <hr>
+    <h5>listFormatInteger</h5><br>
+    <span th:each="num : ${#numbers.listFormatInteger(list,2)}"><span th:text="${num}"></span><br></span>
+    <hr>
+    <h5>setFormatInteger</h5><br>
+    <span th:each="num : ${#numbers.setFormatInteger(set,5,'COMMA')}"><span th:text="${num}"></span><br></span>
+    <hr>
+    <h5>sequence</h5><br>
+    <span th:each="num : ${#numbers.sequence(0,5)}"><span th:text="${num}"></span><br></span>
+    <hr>
+    <h5>formatDecimal</h5> <br>
+    <span th:text="${#numbers.formatDecimal(12.51,3,3)}"></span>
+    <hr>
+    <span th:text="${#numbers.formatDecimal(12.4,4,2)}"></span>
+    <hr>
+    <span th:text="${#numbers.formatDecimal(100000000,0,'COMMA',2,'POINT')}"></span>
+    <hr>
+    <h5>setFormatPercent</h5> <br>
+    <span th:text="${#numbers.setFormatPercent(0.123,2,2)}"></span>
+    <hr>
+    <span th:text="${#numbers.setFormatPercent(0.123,4,3)}"></span>
+</body>
+</html>

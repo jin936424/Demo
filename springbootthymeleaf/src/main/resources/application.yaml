@@ -1,0 +1,12 @@
+#thymeleaf配置项
+spring:
+  thymeleaf:
+    #p配置视图模板类型，如果视图模板使用的是HTML5,需要配置mode
+    mode: HTML5
+    #配置thymeleaf引擎编码,默认是utf-8
+    encoding: utf-8
+    servlet:
+      #配置响应类型，默认是任意类型,非必须
+      content-type: text/html
+      #配置页面缓存，一般选falsee
+    cache: false

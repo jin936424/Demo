@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--<link rel="shortcut icon" href="#"/>为了解决Error resolving template [favicon.ico]，找不到fvaicon.ico-->
+    <link rel="shortcut icon" href="#"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a  th:href="@{http://www.baidu.com}">打开百度</a>
+    <!--相对路径-->
+    <!--相对于当前项目的根-->
+    <a th:href="@{/show2}">打开index2</a>
+    <!--相对于服务器路径的根
+        特点：因为部署同一个tomcat，可以做到跨项目访问-->
+    <!--<a th:href="@{~/project/resourcename}">相对于服务器的根</a>-->
+    <hr>
+    通过URL中参传递: <br>
+        <a th:href="@{/show2?id=1001&name=admin}">普通的URL传递参数方式一</a><br>
+        <a th:href="@{/show2(id=1002,name=kevin)}">普通的URL传递参数方式二</a><br>
+        <a th:href="@{'/show2?id='+${id}+'&name='+${name}}">普通的URL传递参数方式三</a><br>
+        <a th:href="@{/show2(id=${id},name=${name})}">普通的URL传递参数方式四</a>
+    <hr>
+    restful风格参数传递: <br>
+        <a th:href="@{/show3/{id}(id=200)}">restful风格参数方式一</a><br>
+        <a th:href="@{/show3/{id}/{name}(id=200,name=admin)}">restful风格参数方式二</a><br>
+        <a th:href="@{/show4/{id}(id=200,name=admin)}">restful风格参数方式三</a><br>
+        <a th:href="@{/show4/{id}(id=${id},name=${name})}">restful风格参数方式四</a><br>
+</body>
+</html>
